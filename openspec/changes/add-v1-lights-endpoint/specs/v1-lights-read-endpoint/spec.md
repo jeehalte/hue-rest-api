@@ -21,6 +21,17 @@ The system SHALL implement `HueRestClient` using Spring `RestClient` for Hue Bri
 - **WHEN** `HueService` requests all lights
 - **THEN** `HueRestClient` executes a `GET` call to `/clip/v2/resource/light` with required headers including `Accept: application/json` and Hue application key authentication
 
+### Requirement: Hue Authentication MUST Be Environment-Provided and Non-Persistent
+The system MUST source Hue authentication details (for example, application key/token) from environment-driven configuration and MUST NOT persist those values in source code, committed files, API payloads, or logs.
+
+#### Scenario: Secure auth configuration
+- **WHEN** the application starts and configures Hue integration
+- **THEN** auth values are read from environment variables (or equivalent secret-injected runtime config) and are not stored or returned by application endpoints
+
+#### Scenario: Standardized application key variable
+- **WHEN** the Hue application key is provided for runtime configuration
+- **THEN** the system reads it from the `HUE_APPLICATION_KEY` environment variable
+
 ### Requirement: Upstream Client Responses MUST NOT Be Returned Directly
 The system MUST NOT return raw payloads from `HueRestClient` (or any future REST client) directly to API users.
 

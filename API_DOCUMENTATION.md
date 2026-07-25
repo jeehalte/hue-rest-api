@@ -1,5 +1,54 @@
 # Hue REST API - Endpoint Documentation
 
+## Lights Endpoint
+
+### GET /v1/lights
+
+Returns mapped light data from the Hue network through `HueService`.
+
+#### Success Response
+
+**Status Code:** `200 OK`
+
+**Response Body:**
+```json
+{
+  "lights": [
+    {
+      "id": "13e52066-9953-42d4-8bac-cd9f3adc14b0",
+      "name": "Hue play gradient lightstrip",
+      "type": "light",
+      "isOn": false,
+      "brightness": 25.3,
+      "color": {
+        "x": 0.6443,
+        "y": 0.3206
+      }
+    }
+  ]
+}
+```
+
+#### Error Response
+
+**Status Code:** `502 Bad Gateway`
+
+```json
+{
+  "error": "Hue Integration Failed",
+  "message": "Unable to retrieve lights from Hue bridge",
+  "status": 502,
+  "violations": []
+}
+```
+
+#### Security / Contract Rule
+
+- Upstream `HueRestClient` responses are never returned directly to API users.
+- Hue auth configuration must be environment-provided:
+  - `HUE_BRIDGE_BASE_URL`
+  - `HUE_APPLICATION_KEY`
+
 ## Light Group Themes Endpoint
 
 ### POST /light-groups/themes

@@ -110,6 +110,12 @@
   - `violations`: Field-level validation errors (if applicable)
 - Log errors with appropriate severity (WARN for expected, ERROR for unexpected)
 
+## REST Client Boundary Rules
+- Never return raw payloads from `HueRestClient` (or any other REST client) directly to users.
+- Always map upstream payloads to API-owned DTOs before returning responses.
+- Authentication details must come from environment variables and must never be persisted in source or committed config.
+- Use `HUE_APPLICATION_KEY` as the standard env var name for Hue application key.
+
 ## Documentation
 - Keep API_DOCUMENTATION.md in sync with endpoint changes
 - Include request/response examples in documentation
