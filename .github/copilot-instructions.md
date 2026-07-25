@@ -2,19 +2,37 @@
 
 ## Code Style & Framework
 - Use Spring Boot 4.1+ best practices
-- All DTOs should use Lombok (@Data, @AllArgsConstructor, @NoArgsConstructor)
-- All REST endpoints should have comprehensive validation
+- All DTOs should use immutable Java Records (since Java 17+)
+- All REST endpoints should have comprehensive validation using Jakarta annotations
 - Use `@RestControllerAdvice` for global exception handling
 - Use `@Configuration` classes for Spring bean configuration
 - Dependency injection via @Autowired for Spring components
 
+## Records (DTOs)
+- Use Java Records instead of Lombok POJOs for immutability and zero boilerplate
+- Apply Jakarta validation annotations to record components:
+  ```java
+  public record ThemeRequest(
+      @NotBlank(message = "Theme name is required")
+      @JsonProperty("theme")
+      String theme,
+      
+      @DecimalMin(value = "0.0")
+      @DecimalMax(value = "100.0")
+      @JsonProperty("brightness")
+      Double brightness
+  ) {}
+  ```
+- Records automatically provide equals(), hashCode(), toString()
+- Use field accessor methods like `record.theme()` instead of getters
+
 ## Testing
 - Framework: JUnit 5 (Jupiter) + MockMvc + AssertJ
-- Controller tests use `@WebMvcTest` 
-- Service tests use `@SpringBootTest` or mocked dependencies
+- Use `@SpringBootTest` for integration tests
+- Service tests use mocked dependencies or `@SpringBootTest`
 - All assertions use AssertJ fluent API (not raw assertions)
 - Test method naming: `test<Feature><Scenario><Expected>()`
-- Mock external services with @MockBean
+- Instantiate ObjectMapper directly in tests (not @Autowired)
 - Minimum 80% code coverage for new code
 
 ## Validation Rules
@@ -37,10 +55,20 @@
 - `src/main/java/com/hue/api/`
   - `controller/` - REST endpoints and exception handlers
   - `service/` - Business logic
-  - `model/` - DTOs and domain models
+  - `model/` - Records and domain models
   - `config/` - Spring configuration (RestClient, etc.)
 - `src/test/java/com/hue/api/` - Mirror structure for tests
-- `app/pom.xml` - Maven configuration with dependencies
+- `app/build.gradle` - Gradle build configuration with dependencies
+
+## Build System
+- **Build Tool:** Gradle 9.6.1 (via wrapper: `./gradlew`)
+- **Spring Boot Plugin:** Handles bootJar, Spring Boot tasks
+- **Dependency Management:** Via Spring Boot dependency management plugin
+- Common tasks:
+  - `./gradlew build` - Full build including tests
+  - `./gradlew test` - Run all tests
+  - `./gradlew bootRun` - Run Spring Boot app locally
+  - `./gradlew bootJar` - Build executable JAR
 
 ## Git Commits
 - Use conventional commits: `feat:`, `fix:`, `docs:`, `test:`, `refactor:`
@@ -56,13 +84,14 @@
   ```
 
 ## Dependencies & Versions
-- Spring Boot: 3.3.2 (with parent pom)
-- Java: 17+
+- Spring Boot: 4.1.0
+- Java: 17+ (Records require Java 17+)
+- Gradle: 9.6.1 (via wrapper)
 - JUnit: 5.x (via spring-boot-starter-test)
 - AssertJ: Latest (via spring-boot-starter-test)
 - Mockito: Latest (via spring-boot-starter-test)
 - Validation API: Jakarta (jakarta.validation)
-- Lombok: For reducing boilerplate
+- No Lombok (Java Records eliminated need for it)
 
 ## Error Handling
 - Return HTTP 400 for validation errors
