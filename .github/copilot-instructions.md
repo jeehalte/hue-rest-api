@@ -2,7 +2,7 @@
 
 ## Code Style & Framework
 - Use Spring Boot 4.1+ best practices
-- All DTOs should use immutable Java Records (since Java 17+)
+- All DTOs should use immutable Java Records (supported on Java 25 baseline)
 - All REST endpoints should have comprehensive validation using Jakarta annotations
 - Use `@RestControllerAdvice` for global exception handling
 - Use `@Configuration` classes for Spring bean configuration
@@ -85,13 +85,20 @@
 
 ## Dependencies & Versions
 - Spring Boot: 4.1.0
-- Java: 17+ (Records require Java 17+)
+- Java: 25 (project baseline)
 - Gradle: 9.6.1 (via wrapper)
 - JUnit: 5.x (via spring-boot-starter-test)
 - AssertJ: Latest (via spring-boot-starter-test)
 - Mockito: Latest (via spring-boot-starter-test)
 - Validation API: Jakarta (jakarta.validation)
 - No Lombok (Java Records eliminated need for it)
+
+## Java 25 Rollout Notes
+- This phase is baseline-only: keep runtime/API behavior unchanged while moving the build to Java 25.
+- Follow-up Java 25 feature adoption sequence:
+  1. Use enhanced pattern matching in controller/service branching where it reduces conditional complexity.
+  2. Replace suitable DTO-adjacent utility code with newer immutable collections/string templating patterns.
+  3. Evaluate targeted JVM/runtime improvements after functional refactors are complete.
 
 ## Error Handling
 - Return HTTP 400 for validation errors
