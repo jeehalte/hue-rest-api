@@ -1,0 +1,9 @@
+com/hue/api/HueRestApiApplication.class
+com/hue/api/config/RestClientConfig.class
+com/hue/api/controller/LightGroupController.class
+com/hue/api/App.class
+com/hue/api/service/LightGroupService.class
+com/hue/api/controller/GlobalExceptionHandler.class
+com/hue/api/model/ThemeResponse.class
+com/hue/api/model/ThemeRequest.class
+com/hue/api/model/ErrorResponse.class
