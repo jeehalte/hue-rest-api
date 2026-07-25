@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.hue.api.config.RestClientConfigTest" tests="2" skipped="0" failures="0" errors="0" timestamp="2026-07-25T15:20:22.128Z" hostname="MacBook-Air.local" time="0.025">
+  <properties/>
+  <testcase name="testRestClientBeanIsProvided()" classname="com.hue.api.config.RestClientConfigTest" time="0.018"/>
+  <testcase name="testRestClientCanBeInjected()" classname="com.hue.api.config.RestClientConfigTest" time="0.001"/>
+  <system-out><![CDATA[2026-07-25T09:20:22.128-06:00  INFO 17635 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.config.RestClientConfigTest]: RestClientConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-25T09:20:22.131-06:00  INFO 17635 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.config.RestClientConfigTest
+2026-07-25T09:20:22.132-06:00  INFO 17635 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.config.RestClientConfigTest]: RestClientConfigTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-25T09:20:22.132-06:00  INFO 17635 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.config.RestClientConfigTest
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

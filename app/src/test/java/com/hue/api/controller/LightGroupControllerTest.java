@@ -3,38 +3,37 @@ package com.hue.api.controller;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.hue.api.model.ThemeRequest;
 import com.hue.api.model.ThemeResponse;
-import com.hue.api.service.LightGroupService;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.BeforeEach;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.setup.MockMvcBuilders;
+import org.springframework.web.context.WebApplicationContext;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(LightGroupController.class)
+@SpringBootTest
 public class LightGroupControllerTest {
 
   @Autowired
-  private MockMvc mockMvc;
+  private WebApplicationContext context;
 
-  @Autowired
+  private MockMvc mockMvc;
   private ObjectMapper objectMapper;
 
-  @MockBean
-  private LightGroupService lightGroupService;
+  @BeforeEach
+  void setup() {
+    mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
+    objectMapper = new ObjectMapper();
+  }
 
   @Test
   void testSuccessfulThemeApplication() throws Exception {
     ThemeRequest request = new ThemeRequest("cool", 75.0);
-    ThemeResponse response = new ThemeResponse("Theme applied successfully to light group", "cool", 75.0, "applied");
-    
-    when(lightGroupService.applyTheme(any(ThemeRequest.class))).thenReturn(response);
 
     mockMvc.perform(post("/light-groups/themes")
         .contentType(MediaType.APPLICATION_JSON)
@@ -81,9 +80,6 @@ public class LightGroupControllerTest {
   @Test
   void testBrightnessAtBoundaryZero() throws Exception {
     ThemeRequest request = new ThemeRequest("cool", 0.0);
-    ThemeResponse response = new ThemeResponse("Theme applied successfully to light group", "cool", 0.0, "applied");
-    
-    when(lightGroupService.applyTheme(any(ThemeRequest.class))).thenReturn(response);
 
     mockMvc.perform(post("/light-groups/themes")
         .contentType(MediaType.APPLICATION_JSON)
@@ -95,9 +91,6 @@ public class LightGroupControllerTest {
   @Test
   void testBrightnessAtBoundaryHundred() throws Exception {
     ThemeRequest request = new ThemeRequest("cool", 100.0);
-    ThemeResponse response = new ThemeResponse("Theme applied successfully to light group", "cool", 100.0, "applied");
-    
-    when(lightGroupService.applyTheme(any(ThemeRequest.class))).thenReturn(response);
 
     mockMvc.perform(post("/light-groups/themes")
         .contentType(MediaType.APPLICATION_JSON)
@@ -109,9 +102,6 @@ public class LightGroupControllerTest {
   @Test
   void testDecimalBrightnessValue() throws Exception {
     ThemeRequest request = new ThemeRequest("warm", 75.5);
-    ThemeResponse response = new ThemeResponse("Theme applied successfully to light group", "warm", 75.5, "applied");
-    
-    when(lightGroupService.applyTheme(any(ThemeRequest.class))).thenReturn(response);
 
     mockMvc.perform(post("/light-groups/themes")
         .contentType(MediaType.APPLICATION_JSON)
