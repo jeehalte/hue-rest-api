@@ -5,6 +5,7 @@ import com.hue.api.config.HueProperties;
 import com.hue.api.exception.HueIntegrationException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.stereotype.Component;
@@ -20,7 +21,8 @@ public class RestClientHueRestClient implements HueRestClient {
   private final RestClient restClient;
   private final HueProperties hueProperties;
 
-  public RestClientHueRestClient(RestClient restClient, HueProperties hueProperties) {
+  public RestClientHueRestClient(@Qualifier("hueRestClient") RestClient restClient,
+      HueProperties hueProperties) {
     this.restClient = restClient;
     this.hueProperties = hueProperties;
   }

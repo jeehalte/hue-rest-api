@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.hue.api.service.HueServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-07-26T00:03:17.503Z" hostname="MacBook-Air.local" time="0.181">
-  <properties/>
-  <testcase name="mapsHueBridgeFixtureToApiOwnedModel()" classname="com.hue.api.service.HueServiceTest" time="0.181"/>
-  <system-out><![CDATA[]]></system-out>
-  <system-err><![CDATA[]]></system-err>
-</testsuite>
