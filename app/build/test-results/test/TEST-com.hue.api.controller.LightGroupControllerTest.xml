@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="com.hue.api.controller.LightGroupControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-07-25T22:08:54.024Z" hostname="MacBook-Air.local" time="0.163">
+<testsuite name="com.hue.api.controller.LightGroupControllerTest" tests="7" skipped="0" failures="0" errors="0" timestamp="2026-07-26T00:03:16.753Z" hostname="MacBook-Air.local" time="0.748">
   <properties/>
-  <testcase name="testBrightnessAtBoundaryZero()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.126"/>
-  <testcase name="testBrightnessAtBoundaryHundred()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.007"/>
-  <testcase name="testMissingThemeFieldValidation()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.01"/>
-  <testcase name="testDecimalBrightnessValue()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.003"/>
-  <testcase name="testInvalidBrightnessAboveMaximum()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.003"/>
-  <testcase name="testInvalidBrightnessBelowMinimum()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.003"/>
-  <testcase name="testSuccessfulThemeApplication()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.002"/>
-  <system-out><![CDATA[2026-07-25T16:08:54.026-06:00  INFO 77323 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.controller.LightGroupControllerTest]: LightGroupControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-07-25T16:08:54.029-06:00  INFO 77323 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.controller.LightGroupControllerTest
-2026-07-25T16:08:54.030-06:00  INFO 77323 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.controller.LightGroupControllerTest]: LightGroupControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2026-07-25T16:08:54.030-06:00  INFO 77323 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.controller.LightGroupControllerTest
-2026-07-25T16:08:54.034-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.034-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.035-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-07-25T16:08:54.159-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.159-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.160-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-07-25T16:08:54.169-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.169-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.169-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-07-25T16:08:54.177-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.177-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.178-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
-2026-07-25T16:08:54.180-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.180-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.181-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-07-25T16:08:54.183-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.184-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.184-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
-2026-07-25T16:08:54.186-06:00  INFO 77323 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2026-07-25T16:08:54.186-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2026-07-25T16:08:54.186-06:00  INFO 77323 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+  <testcase name="testBrightnessAtBoundaryZero()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.507"/>
+  <testcase name="testBrightnessAtBoundaryHundred()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.023"/>
+  <testcase name="testMissingThemeFieldValidation()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.046"/>
+  <testcase name="testDecimalBrightnessValue()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.007"/>
+  <testcase name="testInvalidBrightnessAboveMaximum()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.01"/>
+  <testcase name="testInvalidBrightnessBelowMinimum()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.014"/>
+  <testcase name="testSuccessfulThemeApplication()" classname="com.hue.api.controller.LightGroupControllerTest" time="0.01"/>
+  <system-out><![CDATA[2026-07-25T18:03:16.762-06:00  INFO 521 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.controller.LightGroupControllerTest]: LightGroupControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-25T18:03:16.824-06:00  INFO 521 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.controller.LightGroupControllerTest
+2026-07-25T18:03:16.831-06:00  INFO 521 --- [    Test worker] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.hue.api.controller.LightGroupControllerTest]: LightGroupControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2026-07-25T18:03:16.834-06:00  INFO 521 --- [    Test worker] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.hue.api.HueRestApiApplication for test class com.hue.api.controller.LightGroupControllerTest
+2026-07-25T18:03:16.866-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:16.867-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:16.872-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 5 ms
+2026-07-25T18:03:17.384-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.387-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.393-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 6 ms
+2026-07-25T18:03:17.409-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.409-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.413-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 4 ms
+2026-07-25T18:03:17.456-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.457-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.457-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2026-07-25T18:03:17.465-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.465-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.466-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-07-25T18:03:17.478-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.478-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.480-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2026-07-25T18:03:17.494-06:00  INFO 521 --- [    Test worker] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2026-07-25T18:03:17.494-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2026-07-25T18:03:17.495-06:00  INFO 521 --- [    Test worker] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
 ]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>
